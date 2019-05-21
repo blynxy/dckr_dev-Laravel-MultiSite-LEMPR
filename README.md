@@ -8,6 +8,7 @@ this is used on a windows system, have not tested on Mac or Linux yet.
 - must have a ```$home/sites``` folder with ```$home``` being your user directory.
 - must symlink your desired laravel project into the sites folder ```mklink /J $home/sites/name.test /path/to/your/laravel/root```
 - docker will require your local drive to be shared in your ```Docker Settings -> Shared Drives```
+- add a line to your ```c:\Windows\System32\Drivers\etc\hosts``` file with the right name.test domain resolution ex: ```127.0.0.1 mydomain.test```
 
 
 
