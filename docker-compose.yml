@@ -1,0 +1,35 @@
+version: '2.1'
+services:
+  websrv:
+    build: 
+      context: ./websrv
+      dockerfile: DockerFile
+    ports:
+     - "80:80"
+    volumes:
+     - ../sites:/var/www/sites
+    networks:
+     - dev-net
+  redis:
+    image: redis:alpine
+    networks:
+     - dev-net
+  mysql:
+    image: mysql
+    ports:
+     - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: my-app
+      MYSQL_USER: app-user
+      MYSQL_PASSWORD: app-pass
+    volumes:
+     - mysqldata:/var/lib/mysql
+    networks:
+     - dev-net
+networks:
+  dev-net:
+    driver: "bridge"
+volumes:
+  mysqldata:
+    driver: "local"
