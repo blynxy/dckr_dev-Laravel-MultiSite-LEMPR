@@ -7,7 +7,7 @@ services:
     ports:
      - "80:80"
     volumes:
-     - ~/sites/:/var/www/sites
+     - ~/Sites/:/var/www/sites
     networks:
      - dev-net
   redis:
